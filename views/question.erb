@@ -1,0 +1,13 @@
+   <h3>Who is <strong><span id="friend"><%= @random_friend['name'] %></span></strong>?</h3>
+   <form>
+     <div class="controlset">
+      <% @answers.each_with_index do |answer, index| %>
+        <input type="radio" class="answer" id="answer<%= index %>" name="answer" value="<%= index %>"/>
+        <label for="answer<%= index %>"><%= answer.empty? ? "unknown (he is not revealing himself)" : answer %></label><br/>
+      <% end %>
+    </div>
+
+    <div><input type="hidden" id="ca" value="<%= @correct_answer %>"/></div>
+    <div><input type="hidden" id="name" value="<%= params[:name] %>"/></div>
+    <div><input type="submit" id="check" class="button" value="Check my answer"/></div>
+  </form>

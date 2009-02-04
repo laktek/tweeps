@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Know Ur Tweeps? (Take the Quiz)</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $("input#begin").click(function(){ 
+             $("#play_area").load("/question?name=" + $("input#name").val()) 
+             return false
+          });
+
+          $("#check").live("click", function(){
+            if($(".answer:checked").val() == $("#ca").val())
+            reveal = $("<div id='result'><strong>" + "Woot! so you really know about " + $("#friend").text() +" :)</strong></div>")
+            else
+            reveal = $("<div id='result'><strong>Oops! Thats not " + $("#friend").text() + ":(</strong> Correct one is <strong>" + $("label").eq($("#ca").val()).text() + "</strong></div>");
+            $("#play_area").after(reveal);
+            $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide()});
+            return false
+          });
+      });
+    </script>
+
+  <link rel="stylesheet" type="text/css" href="css/html.css" media="screen, projection, tv " />
+  <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen, projection, tv" />
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+
+  <!-- Conditional comment to apply opacity fix for IE #content background.
+       Invalid CSS, but can be removed without harming design -->
+  <!--[if gt IE 5]>
+  <link rel="stylesheet" type="text/css" href="css/ie.css" media="screen, projection, tv " />
+  <![endif]-->
+  </head>
+
+  <body>
+    <!-- #wrapper: centers the content and sets the width -->
+    <div id="wrapper">
+
+    <!-- #content: applies the white, dropshadow background -->
+    <div id="content">
+
+    <!-- #header: holds site title and subtitle -->
+    <div id="header">
+      <h1>Know Ur Tweeps?</h1>
+      <h2><span class="highlight">Wanna take the challenge??</span></h2>
+    </div>
+    
+    <div id="page">
+      <div id="play_area">
+        <form>
+          <h3>Your Twitter ID</h3>
+          <input type="text" size="40" id="name"/><br/>
+          <input class="button" type="submit" id="begin" value="Lets Begin!"/>
+        </form>
+      </div>
+
+      <!-- .footer: the site footer text, links and whatever else -->
+      <p class="footer">
+        Design by <a href="http://fullahead.org" title="Visit FullAhead">FullAhead</a>.  Valid CSS &amp; XHTML with no rights reserved.
+      </p>
+    </div>
+   </div>
+  </div>
+  </body>
+</html>
