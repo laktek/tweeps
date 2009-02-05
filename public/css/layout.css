@@ -329,4 +329,5 @@ input.button { padding: 10px 5px; font-size: 1.3em; }
 
 div#score { margin: 5px auto; font-size: 1.1em }
 div#adblock { margin: 10px auto; }
+.namePrompt { font-size:1.3em; padding: 10px 5px; color: #c0c0c0;}
 
