@@ -26,7 +26,10 @@
             percent = Math.round(correct/++tries * 100);
             $("#score").html("You know <strong>" + percent + "%</strong> of your tweeps.");
             $("#tweet").attr("href", "http://twitter.com/home?status=I%20know%20" + percent + "%%20of%20my%20tweeps.%20(via http://tweeps.hackruby.com)");
-            $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide("slow")});
+            setTimeout(function(){
+              $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide("slow")});
+              }, 500);
+
             return false
           });
           $("#stop").live("click", function(){
