@@ -19,11 +19,11 @@
             }
             else
             reveal = $("<strong>Oops! Thats not " + $("#friend").text() + ":(</strong><br/> Correct one is <span>&quot;" + $("label").eq($("#ca").val()).text() + "&quot;</span>");
-            $("#result").html(reveal).show();
+            $("#result").html(reveal).show("fast");
             percent = Math.round(correct/++tries * 100);
             $("#score").html("You know <strong>" + percent + "%</strong> of your tweeps.");
             $("#tweet").attr("href", "http://twitter.com/home?status=I%20know%20" + percent + "%%20of%20my%20tweeps.%20(via http://tweeps.hackruby.com)");
-            $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide()});
+            $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide("slow")});
             return false
           });
       });
