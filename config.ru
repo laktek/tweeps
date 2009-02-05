@@ -4,7 +4,7 @@ require 'vendor/sinatra/lib/sinatra.rb'
 Sinatra::Application.default_options.merge!(
     :run => false,
     :env => :production,
-    :views => '/home/laktek/tweeps.hackruby.com/views'
+    :views => '/home/laktek/apps/tweeps.hackruby.com/current/views'
     )
 
 require 'knowurtweeps.rb'
