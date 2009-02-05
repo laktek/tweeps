@@ -18,10 +18,11 @@
               correct++;
             }
             else
-            reveal = $("<strong>Oops! Thats not " + $("#friend").text() + ":(</strong> Correct one is <strong>" + $("label").eq($("#ca").val()).text() + "</strong>");
+            reveal = $("<strong>Oops! Thats not " + $("#friend").text() + ":(</strong><br/> Correct one is <span>&quot;" + $("label").eq($("#ca").val()).text() + "&quot;</span>");
             $("#result").html(reveal).show();
-            $("#score").html("You know " + ( correct ) + " out of " + ( ++tries) + " your tweeps.");
-            $("#tweet").attr("href", "http://twitter.com/home?status=I%20know%20" + correct + "%20out%20of%20"+ (tries) + "%20my%20tweeps.%20(via http://tweeps.hackruby.com)");
+            percent = Math.round(correct/++tries * 100);
+            $("#score").html("You know <strong>" + percent + "%</strong> of your tweeps.");
+            $("#tweet").attr("href", "http://twitter.com/home?status=I%20know%20" + percent + "%%20of%20my%20tweeps.%20(via http://tweeps.hackruby.com)");
             $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide()});
             return false
           });
@@ -48,14 +49,14 @@
 
     <!-- #header: holds site title and subtitle -->
     <div id="header">
-      <h1>Know Ur Tweeps?</h1>
-      <h2><span class="highlight">Kill some time to find out...</span></h2>
+      <h1>Know Ur Tweeps</h1>
+      <h2><span class="highlight">Following them blindly or really know them??</span></h2>
     </div>
     
     <div id="page">
       <div id="play_area">
         <form>
-          <h3>Your Twitter ID</h3>
+          <h3> Kill some time to find out...</h3>
           <input class="bigField" type="text" size="45" id="name"/><br/>
           <div class="buttonrow">
             <input class="button" type="submit" id="begin" value="Lets Begin!"/>
