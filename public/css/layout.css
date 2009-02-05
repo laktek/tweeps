@@ -323,9 +323,9 @@ ul.bigLinks li a:hover span.desc {
   border-top: 1px solid #BDEDDE;
 }
 
-input.bigField { padding: 10px 5px; font-size: 130% }
+input.bigField { padding: 10px 5px; font-size: 1.2em }
 div.buttonrow { margin-left: 177px; margin-top: 20px;  }
-input.button { padding: 10px 5px; font-size: 130%; }
+input.button { padding: 10px 5px; font-size: 1.2em; }
 
-
+div#score { margin: 5px auto; font-size: 1.1em }
 

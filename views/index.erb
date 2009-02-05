@@ -4,17 +4,24 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"></script>
     <script type="text/javascript">
       $(function(){
+          var correct = 0;
+          var tries = 0;
+
           $("input#begin").click(function(){ 
              $("#play_area").load("/question?name=" + $("input#name").val()) 
              return false
           });
 
           $("#check").live("click", function(){
-            if($(".answer:checked").val() == $("#ca").val())
-            reveal = $("<div id='result'><strong>" + "Woot! so you really know about " + $("#friend").text() +" :)</strong></div>")
+            if($(".answer:checked").val() == $("#ca").val()){
+              reveal = $("<strong>" + "Woot! so you really know about " + $("#friend").text() +" :)</strong>")
+              correct++;
+            }
             else
-            reveal = $("<div id='result'><strong>Oops! Thats not " + $("#friend").text() + ":(</strong> Correct one is <strong>" + $("label").eq($("#ca").val()).text() + "</strong></div>");
-            $("#play_area").after(reveal);
+            reveal = $("<strong>Oops! Thats not " + $("#friend").text() + ":(</strong> Correct one is <strong>" + $("label").eq($("#ca").val()).text() + "</strong>");
+            $("#result").html(reveal).show();
+            $("#score").html("You know " + ( correct ) + " out of " + ( ++tries) + " your tweeps.");
+            $("#tweet").attr("href", "http://twitter.com/home?status=I%20know%20" + correct + "%20out%20of%20"+ (tries) + "%20my%20tweeps.%20(via http://tweeps.hackruby.com)");
             $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide()});
             return false
           });
@@ -56,6 +63,9 @@
         </form>
       </div>
 
+      <div id="result"></div>
+      <div id="score"></div>
+      <a id="tweet" href="http://twitter.com/home?status=Know%20your%20Tweeps?%20Take%20the%20Quiz%20-%20http://tweeps.hackruby.com">Tweet this!</a>
       <!-- .footer: the site footer text, links and whatever else -->
       <p class="footer">
         Concept &amp; Development by <a href="http://laktek.com">Lakshan Perera</a><br/> 
