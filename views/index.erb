@@ -28,7 +28,7 @@
             $("#tweet").attr("href", "http://twitter.com/home?status=I%20know%20" + percent + "%%20of%20my%20tweeps.%20(via http://tweeps.hackruby.com)");
             setTimeout(function(){
               $("#play_area").load("/question?name=" + $("input#name").val(), function(){ $("#result").hide("slow")});
-              }, 500);
+              }, 2000);
 
             return false
           });
